@@ -6,6 +6,7 @@ body {
     align-items: center;
     justify-content: space-between;
     user-select:none;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 header {
