@@ -3,31 +3,38 @@ body {
     color: beige;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    justify-content: space-between;
+    user-select:none;
 }
 
 header {
     color: beige;
-    background-color: black;
+    background-color: rgb(32, 32, 32);
     padding: 20px 0 20px 0;
-    width: 100%;
     text-align: center;
-    position:absolute;
     top: 0;
 }
 
 main {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
 
+.sides {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
 footer {
-    position:absolute;
+    position: fixed;
     bottom:0;
     padding: 20px 0 20px 0;
-    width: 100%;
-    background-color: black;
+    background-color: rgb(29, 29, 29);
     text-align: center;
 }
 
@@ -38,14 +45,15 @@ footer {
     height: 32vw;
     min-width: 500px;
     min-height: 500px;
-    background-color: rgb(255, 0, 0);
+    margin-top: 10vh;
 }
 
 .sketch-block {
     width: 6.25%;
     height: 6.25%;
     background-color: white;
-    border: 1px solid black;
+    border: 0.5px solid black;
     box-sizing: border-box;
+    
 }
 

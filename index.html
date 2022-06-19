@@ -10,7 +10,15 @@
 <body>
     <header>Etch-A-Sketch</header>
     <main>
-    <div id="sketch-container" class="sketch-container"></div>
+        <div class="sides">
+            <label for="size">Grid size</label>
+            <input type="range" id="size-slider" name="size" step="8" min="8" max="64" oninput="changeValue(this.value)">
+            <label for="size" id="size-value">16</label>
+        </div>
+        <div id="sketch-container" class="sketch-container"></div>
+        <div class="sides">
+
+        </div>
     </main>
     <footer>THE ODIN PROJECT - Daniel Yancic</footer>
     <script type="text/javascript" src="script.js"></script> 
