@@ -15,6 +15,7 @@ header {
     padding: 20px 0 20px 0;
     text-align: center;
     top: 0;
+    width: 100vw;
 }
 
 main {
@@ -33,10 +34,11 @@ main {
 
 footer {
     position: fixed;
-    bottom:0;
+    bottom: 8px;
     padding: 20px 0 20px 0;
     background-color: rgb(29, 29, 29);
     text-align: center;
+    width: 100vw;
 }
 
 .sketch-container {
@@ -53,8 +55,11 @@ footer {
     width: 6.25%;
     height: 6.25%;
     background-color: white;
-    border: 0.5px solid black;
+    border: 0.5px solid rgba(0, 0, 0, 0.28);
     box-sizing: border-box;
-    
 }
 
+label {
+    display: flex;
+    justify-content: space-between;
+}

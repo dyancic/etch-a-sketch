@@ -5,16 +5,33 @@ gridDiv.className = "sketch-block";
 
 
 //color change func
-function fillBlock(e) {
+function fillBlock(e, n) {
     let block = document.getElementById(e);
-    if (block.style.backgroundColor !== "black") {
-        block.style.backgroundColor = "black"; 
-    }
-    else {
-        block.style.backgroundColor = "white";
+    console.log(n);
+    console.log(e);
+    switch (n) {
+        case "black":
+            block.style.backgroundColor = "black";
+            break;
+        case "rainbow":
+            block.style.backgroundColor = "white";
+            break;
+        case "white":
+            block.style.backgroundColor = "white";
+            break;
     }
 }
 
+let selectedColor = "black";
+
+function changeColor(n) {
+    selectedColor = n.value;
+    return selectedColor;
+}
+
+// document.querySelectorAll('input[name="color-change"]').forEach((element) => {
+//     element.addEventListener("change", changeColor());
+// });
 
 function loadGrid(n) {
     for (i = 0; i < (n*n); i++) {
@@ -24,15 +41,17 @@ function loadGrid(n) {
     let blocks = document.querySelectorAll(".sketch-block");
     Array.from(blocks).forEach(element => {
         element.addEventListener("mousedown", clickEvent => {
-            fillBlock(element.id);
+            fillBlock(element.id, selectedColor);
         })
     });
     let mouseIsDown = false
     document.body.addEventListener("mousedown", () => mouseIsDown = true);
     document.body.addEventListener("mouseup", () => mouseIsDown = false);
-    Array.from(blocks).forEach( element => {
-    element.addEventListener("mouseover", clickEvent => {
-        if (mouseIsDown) { fillBlock(element.id); }
+    Array.from(blocks).forEach(element => {
+        element.addEventListener("mouseover", clickEvent => {
+            if (mouseIsDown) { 
+                fillBlock(element.id, selectedColor); 
+        }
     })
 });
 }
@@ -63,11 +82,3 @@ function changeValue(v) {
     })
 }
 
-
-
-
-//stops the drag and drop bug --- think this isn't needed anymore
-// gridDiv.draggable = "false";
-// const dragDrop = document.querySelectorAll(".sketch-container", ".sketch-block", "header", "footer");
-// dragDrop.addEventListener("dragstart", (e) => { e.preventDefault() })
-// dragDrop.addEventListener("drop", (e) => { e.preventDefault() })
