@@ -15,18 +15,18 @@
             <input type="range" id="size-slider" name="size" step="8" min="8" max="64" oninput="changeValue(this.value)">
             <label for="size" id="size-value">16 x 16</label>
             <br>
-            <div class="radioWrap">
-                <label for="black">
-                    change to black
-                    <input type="radio" id="black" name="color-change" value="black" onchange="changeColor(this)" checked/>
+            <div class="change-wrapper">
+                <label for="mainColor">
+                    <input type="color" id="mainColor" oninput="rgbChanger(this)"/>
+                    <input type="radio" id="mainColorRadio" name="color-change" value="mainColor" onchange="changeColor(this)"/>
                 </label>  
                 <label for="rainbow">
-                    change to rainbow
-                    <input type="radio" id="rainbow" name="color-change" onchange="changeColor(this)" value="rainbow" />
+                    Randomizer
+                    <input type="radio" id="rainbow" name="color-change" onchange="changeColor(this)" value="rainbow"/>
                 </label>
                 <label for="eraser">
                     eraser
-                    <input type="radio" id="eraser" name="color-change" onchange="changeColor(this)" value="white" />
+                    <input type="radio" id="eraser" name="color-change" onchange="changeColor(this)" value="white"/>
                 </label>
             </div>    
         </div>

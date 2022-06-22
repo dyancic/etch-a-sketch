@@ -3,35 +3,58 @@ let gridDiv = document.createElement("div");
 let sketchContainer = document.getElementById("sketch-container");
 gridDiv.className = "sketch-block";
 
+let rainbowColor;
+
+function randomColors() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    rainbowColor = "rgb(" + x + "," + y + "," + z + ")";
+    return rainbowColor;
+}
 
 //color change func
 function fillBlock(e, n) {
     let block = document.getElementById(e);
-    console.log(n);
-    console.log(e);
     switch (n) {
         case "black":
             block.style.backgroundColor = "black";
+            block.style.border = "0.5px solid rgba(0, 0, 0, 0.125)";
             break;
-        case "rainbow":
-            block.style.backgroundColor = "white";
-            break;
+            case "rainbow":
+                randomColors();
+                block.style.backgroundColor = rainbowColor;
+                block.style.border = 0;
+                break;
         case "white":
             block.style.backgroundColor = "white";
+            block.style.border = "0.5px solid rgba(0, 0, 0, 0.125)";
             break;
-    }
-}
-
+            //need to change this to an rgb selector
+            case "mainColor":
+                block.style.backgroundColor = rgbColor;
+                block.style.border = 0;
+                break;
+            }
+        }
+        
+//change to main color when rgb sorted
 let selectedColor = "black";
+//changes when rgb color is changed listeners
+let rgbColor = "black";
+function rgbChanger(n) {
+    rgbColor = n.value;
+    console.log(rgbColor);
+    return rgbColor;
+}
 
 function changeColor(n) {
     selectedColor = n.value;
     return selectedColor;
 }
+        
+//rainbow function
 
-// document.querySelectorAll('input[name="color-change"]').forEach((element) => {
-//     element.addEventListener("change", changeColor());
-// });
 
 function loadGrid(n) {
     for (i = 0; i < (n*n); i++) {
